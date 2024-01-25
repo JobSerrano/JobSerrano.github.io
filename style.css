@@ -24,7 +24,7 @@ header h1 {
 }
 
 section article {
-    transition: box-shadow 0.3s ease;
+    transition: background-color 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease;
     background-color: white;
     margin: 1rem 0rem;
     border-radius: 0.7rem;
@@ -33,6 +33,8 @@ section article {
 }
 
 section article:hover {
+    background-color: #C8102E;
+    transform: scale(1.05) rotate(-5deg);
     box-shadow: 0 0.35rem 0.6rem rgba(0, 0, 0, 0.4);
 }
 
@@ -62,5 +64,60 @@ footer a {
 
 footer a:hover {
     color: cornflowerblue;
+}
+
+.background-container {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.background-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease;
+    z-index: -1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Estilos para la barra de búsqueda */
+.search-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#searchInput {
+    padding: 8px;
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    color: #333;
+    transition: transform 0.3s ease; /* Agrega animación de transformación */
+}
+
+button {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 20px;
+    margin-left: 5px;
+    color: #fff;
+    background-color: #c8102e;
+    border: none;
+    transition: transform 0.3s ease; /* Agrega animación de transformación */
+}
+
+/* Agrega estilos cuando el usuario interactúa */
+#searchInput:focus,
+button:focus {
+    transform: scale(1.1); /* Aumenta el tamaño al hacer clic */
 }
 
