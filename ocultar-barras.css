@@ -1,0 +1,20 @@
+/* 
+* Definir fuentes
+* Quitar barras de alado
+* Definir colores
+*/
+
+/* Para navegadores WebKit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* Para Firefox */
+html {
+    scrollbar-width: none;
+}
+
+/* Para Internet Explorer y Edge */
+body {
+    -ms-overflow-style: none;
+}

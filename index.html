@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Corriente Eléctrica</title>
+    <link rel="icon" href="imagenes/icono.png">
+    <link rel="stylesheet" href="ocultar-barras.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <button onclick="mostrarSeccion('inicio')">Inicio</button>
+            <button onclick="mostrarSeccion('intensidad')">Intensidad de Corriente</button>
+            <button onclick="mostrarSeccion('velocidad')">Velocidad de Arrastre</button>
+            <button onclick="mostrarSeccion('densidad')">Densidad de Corriente</button>
+            <button onclick="mostrarSeccion('calculadora')">Calculadora</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección 1 -->
+        <section id="inicio" class="seccion">
+            <div class="hero-banner">
+                <h1>Simulador de Corriente Eléctrica</h1>
+                <p class="subtitle">Explora los fundamentos del electromagnetismo de manera interactiva</p>
+            </div>
+
+            <div class="team-section">
+                <h2 class="section-title">Equipo desarrollador</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-photo"><img src="imagenes/danRic.jpg" alt="Alan"></div>
+                        <h3>Altamirano Mendoza Alan</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"><img src="imagenes/cr7.jpg" alt="Mauricio"></div>
+                        <h3>Lopes Juarez Mauricio</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"><img src="imagenes/carlos.jpeg" alt="Ramses"></div>
+                        <h3>Pavon Leos Diego Ramses</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"><img src="imagenes/charles.jpeg" alt="Gonzalo"></div>
+                        <h3>Sanchez Calvillo Gonzalo</h3>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-photo"><img src="imagenes/checo.jpeg" alt="Job"></div>
+                        <h3>Serrano Aguilar Job Og</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="importance-section">
+                <h2 class="section-title">El poder del electromagnetismo</h2>
+
+                <div class="importance-card">
+                    <div class="importance-image electricity-img"></div>
+                    <div class="importance-content">
+                        <h3>Electricidad en la vida moderna</h3>
+                        <ul class="styled-list">
+                            <li><i class="icon-bolt"></i> Alimenta el 95% de los dispositivos tecnológicos</li>
+                            <li><i class="icon-hospital"></i> Permite avances médicos cruciales</li>
+                            <li><i class="icon-globe"></i> Conecta al mundo a través de internet</li>
+                            <li><i class="icon-car"></i> Revoluciona el transporte sostenible</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="importance-card reverse">
+                    <div class="importance-image magnetism-img"></div>
+                    <div class="importance-content">
+                        <h3>Magnetismo que transforma</h3>
+                        <ul class="styled-list">
+                            <li><i class="icon-power"></i> Base de generación de energía</li>
+                            <li><i class="icon-hdd"></i> Almacenamiento de información</li>
+                            <li><i class="icon-mri"></i> Diagnóstico médico avanzado</li>
+                            <li><i class="icon-compass"></i> Sistemas de navegación global</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Sección 2 -->
+        <section id="intensidad" class="seccion-corriente seccion" style="display: none;">
+            <div class="header-corriente">
+                <h1 class="titulo-principal">Intensidad de Corriente Eléctrica</h1>
+                <div class="decoracion-linea"></div>
+            </div>
+
+            <div class="contenido-corriente">
+                <div class="definicion-corriente">
+                    <p class="texto-destacado">
+                        La intensidad de corriente eléctrica (<span class="formula">I</span>) representa el flujo neto
+                        de carga eléctrica a través de una superficie en la unidad de tiempo.
+                    </p>
+
+                    <div class="formula-container">
+                        <div class="formula-principal">
+                            <span class="formula">I = <div class="frac"><span>Q</span><span class="symbol"></span><span
+                                        class="bottom">t</span></div></span>
+                        </div>
+                        <div class="variables-formula">
+                            <p><span class="formula">I</span>: Intensidad de corriente (Amperes)</p>
+                            <p><span class="formula">Q</span>: Carga eléctrica (Coulombs)</p>
+                            <p><span class="formula">t</span>: Tiempo (segundos)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="simulador-corriente">
+                    <div class="canvas-container">
+                        <canvas id="canvas-intensidad" class="simulador-canvas" width="600" height="200"></canvas>
+                    </div>
+
+                    <div class="controles-simulador">
+                        <button class="btn-simulador aumentar" onclick="aumentarIntensidad()">
+                            <i class="icono">+</i> Aumentar Intensidad
+                        </button>
+                        <button class="btn-simulador disminuir" onclick="disminuirIntensidad()">
+                            <i class="icono">−</i> Disminuir Intensidad
+                        </button>
+                    </div>
+                </div>
+
+                <div class="datos-curiosos">
+                    <h2 class="subtitulo">Datos Interesantes</h2>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">⚡</div>
+                        <p>1 Ampere equivale al paso de aproximadamente <span class="resaltar">6.24 ×
+                                10<sup>18</sup></span> electrones por segundo.</p>
+                    </div>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">🔌</div>
+                        <p>En los cables domésticos (120V), un circuito de 15A puede transportar hasta <span
+                                class="resaltar">1,800 Watts</span> de potencia.</p>
+                    </div>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">🧠</div>
+                        <p>El cuerpo humano puede detectar corrientes tan pequeñas como <span class="resaltar">1
+                                mA</span>, mientras que corrientes superiores a <span class="resaltar">100 mA</span>
+                            pueden ser mortales.</p>
+                    </div>
+                </div>
+
+                <div class="aplicaciones-corriente">
+                    <h2 class="subtitulo">Aplicaciones Prácticas</h2>
+                    <div class="aplicaciones-grid">
+                        <div class="aplicacion-card">
+                            <div class="aplicacion-icono">💡</div>
+                            <h3>Iluminación</h3>
+                            <p>Control de intensidad en lámparas y sistemas de iluminación eficiente.</p>
+                        </div>
+                        <div class="aplicacion-card">
+                            <div class="aplicacion-icono">🔋</div>
+                            <h3>Electrónica</h3>
+                            <p>Diseño de circuitos y protección contra sobrecorrientes.</p>
+                        </div>
+                        <div class="aplicacion-card">
+                            <div class="aplicacion-icono">🏭</div>
+                            <h3>Industria</h3>
+                            <p>Motores eléctricos y sistemas de potencia industrial.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3 -->
+        <section id="velocidad" class="seccion-velocidad seccion" style="display: none;">
+            <div class="hero-velocidad">
+                <div class="hero-content">
+                    <h1 class="titulo-velocidad">
+                        <span class="titulo-destacado">Velocidad de Arrastre</span>
+                        <span class="formula-titulo">(v<sub>d</sub>)</span>
+                    </h1>
+                    <p class="subtitulo-velocidad">El movimiento de los electrones en conductores</p>
+                </div>
+                <div class="hero-decoracion"></div>
+            </div>
+
+            <div class="contenido-velocidad">
+                <div class="definicion-velocidad">
+                    <div class="definicion-texto">
+                        <p>La <strong>velocidad de arrastre</strong> (<span class="formula">v<sub>d</sub></span>) es la
+                            velocidad promedio que adquieren los electrones libres en un conductor cuando se aplica un
+                            campo eléctrico.</p>
+
+                        <div class="formula-container">
+                            <div class="formula-principal">
+                                <span class="formula">v<sub>d</sub> = <div class="frac"><span>I</span><span
+                                            class="symbol"></span><span class="bottom">nAq</span></div></span>
+                            </div>
+                            <div class="variables-formula">
+                                <p><span class="formula">v<sub>d</sub></span>: Velocidad de arrastre (m/s)</p>
+                                <p><span class="formula">I</span>: Intensidad de corriente (A)</p>
+                                <p><span class="formula">n</span>: Densidad de electrones (e<sup>-</sup>/m³)</p>
+                                <p><span class="formula">A</span>: Área transversal (m²)</p>
+                                <p><span class="formula">q</span>: Carga del electrón (1.6×10<sup>-19</sup> C)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canvas original sin modificaciones -->
+                <div class="canvas-container-original">
+                    <canvas id="canvas-velocidad" width="600" height="200" style="border:1px solid black;"></canvas>
+                </div>
+
+                <div class="controles-simulador">
+                    <button class="btn-simulador aumentar" onclick="aumentarVelocidad()">
+                        <i class="icono">+</i> Aumentar Velocidad
+                    </button>
+                    <button class="btn-simulador disminuir" onclick="disminuirVelocidad()">
+                        <i class="icono">−</i> Disminuir Velocidad
+                    </button>
+                </div>
+
+                <div class="datos-curiosos">
+                    <h2 class="subtitulo">Datos Interesantes</h2>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">🐢</div>
+                        <p>1 Ampere en un cable de cobre de 1mm² produce una velocidad de arrastre de solo <span
+                                class="resaltar">0.0001 m/s</span>.</p>
+                    </div>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">⚡</div>
+                        <p>La señal eléctrica viaja a ~<span class="resaltar">2/3 la velocidad de la luz</span>, aunque
+                            los electrones individuales se mueven mucho más lento.</p>
+                    </div>
+                    <div class="curiosidad-item">
+                        <div class="curiosidad-icono">❄️</div>
+                        <p>En superconductores, al no haber resistencia, la velocidad de arrastre puede aumentar
+                            significativamente.</p>
+                    </div>
+                </div>
+
+                <div class="aplicaciones-reales">
+                    <h2 class="subtitulo">Aplicaciones Prácticas</h2>
+                    <div class="aplicaciones-grid">
+                        <div class="aplicacion-card">
+                            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="Circuitos electrónicos">
+                            <h3>Diseño de Circuitos</h3>
+                            <p>Los ingenieros consideran la velocidad de arrastre al diseñar circuitos integrados para
+                                optimizar el flujo de corriente.</p>
+                        </div>
+                        <div class="aplicacion-card">
+                            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="Cables de alta tensión">
+                            <h3>Transmisión de Energía</h3>
+                            <p>En líneas de alta tensión, entender la velocidad de arrastre ayuda a prevenir pérdidas de
+                                energía.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Sección 4 -->
+        <section id="densidad" class="seccion-densidad seccion" style="display: none;">
+            <div class="hero-densidad">
+                <div class="hero-content">
+                    <h1 class="titulo-densidad">
+                        <span class="titulo-destacado">Densidad de Corriente</span>
+                        <span class="formula-titulo">(J)</span>
+                    </h1>
+                    <p class="subtitulo-densidad">Distribución de corriente en conductores</p>
+                </div>
+                <div class="hero-decoracion"></div>
+            </div>
+
+            <div class="contenido-densidad">
+                <div class="definicion-densidad">
+                    <div class="definicion-texto">
+                        <p>La <strong>densidad de corriente</strong> (<span class="formula">J</span>) describe cómo se
+                            distribuye la corriente eléctrica a través del área transversal de un conductor, un concepto
+                            crucial en el diseño de sistemas eléctricos.</p>
+
+                        <div class="formula-container">
+                            <div class="formula-principal">
+                                <span class="formula">J = <div class="frac"><span>I</span><span
+                                            class="symbol"></span><span class="bottom">A</span></div></span>
+                            </div>
+                            <div class="variables-formula">
+                                <p><span class="formula">J</span>: Densidad de corriente (A/m²)</p>
+                                <p><span class="formula">I</span>: Intensidad de corriente (A)</p>
+                                <p><span class="formula">A</span>: Área transversal (m²)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ilustracion-densidad">
+                        <img src="imagenes/densidad.jpeg" alt="Distribución de corriente" class="imagen-cientifica">
+                        <div class="leyenda-imagen">Distribución de corriente en diferentes tipos de conductores</div>
+                    </div>
+                </div>
+
+                <!-- Canvas original sin modificaciones -->
+                <div class="canvas-container-original">
+                    <canvas id="canvas-densidad" width="600" height="150" style="border:1px solid black;"></canvas>
+                </div>
+
+                <div class="controles-simulador">
+                    <button class="btn-simulador aumentar" onclick="aumentarDensidad()">
+                        <i class="icono">+</i> Aumentar Corriente
+                    </button>
+                    <button class="btn-simulador disminuir" onclick="disminuirDensidad()">
+                        <i class="icono">−</i> Disminuir Corriente
+                    </button>
+                </div>
+
+                <div class="datos-reales">
+                    <h2 class="subtitulo">Aplicaciones en la Vida Real</h2>
+                    <div class="datos-grid">
+                        <div class="dato-card">
+                            <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="Cables eléctricos">
+                            <div class="dato-content">
+                                <h3>Cableado Eléctrico</h3>
+                                <p>Los electricistas seleccionan el grosor de los cables basándose en la densidad de
+                                    corriente máxima permitida para evitar sobrecalentamiento.</p>
+                                <div class="dato-curioso">
+                                    <span class="dato-icono">⚠️</span>
+                                    <span>Un cable de 2.5mm² soporta ~20A (8A/mm²)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dato-card">
+                            <img src="https://images.unsplash.com/photo-1551269901-5c5e14c25df7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="Circuitos integrados">
+                            <div class="dato-content">
+                                <h3>Electrónica</h3>
+                                <p>En circuitos integrados, las pistas deben diseñarse con la densidad de corriente
+                                    adecuada para evitar fallos por electromigración.</p>
+                                <div class="dato-curioso">
+                                    <span class="dato-icono">🔬</span>
+                                    <span>Las pistas de cobre típicas soportan ~500A/cm²</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dato-card">
+                            <img src="https://images.unsplash.com/photo-1604998103924-89e012e5265a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                                alt="Sistema de energía">
+                            <div class="dato-content">
+                                <h3>Subestaciones Eléctricas</h3>
+                                <p>Las barras colectoras en subestaciones deben calcularse cuidadosamente para manejar
+                                    altas densidades de corriente sin sobrecalentarse.</p>
+                                <div class="dato-curioso">
+                                    <span class="dato-icono">⚡</span>
+                                    <span>Las barras de cobre soportan ~1600A/in² en condiciones normales</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparacion-materiales">
+                    <h2 class="subtitulo">Densidades Máximas en Diferentes Materiales</h2>
+                    <div class="tabla-comparativa">
+                        <div class="tabla-header">
+                            <div class="tabla-columna">Material</div>
+                            <div class="tabla-columna">Densidad Máxima (A/mm²)</div>
+                            <div class="tabla-columna">Aplicación Típica</div>
+                        </div>
+                        <div class="tabla-fila">
+                            <div class="tabla-columna">Cobre</div>
+                            <div class="tabla-columna">3-6</div>
+                            <div class="tabla-columna">Cableado eléctrico</div>
+                        </div>
+                        <div class="tabla-fila">
+                            <div class="tabla-columna">Aluminio</div>
+                            <div class="tabla-columna">2-4</div>
+                            <div class="tabla-columna">Líneas de transmisión</div>
+                        </div>
+                        <div class="tabla-fila">
+                            <div class="tabla-columna">Oro</div>
+                            <div class="tabla-columna">4-8</div>
+                            <div class="tabla-columna">Contactos electrónicos</div>
+                        </div>
+                        <div class="tabla-fila">
+                            <div class="tabla-columna">Tungsteno</div>
+                            <div class="tabla-columna">8-12</div>
+                            <div class="tabla-columna">Filamentos de lámparas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Sección 5 -->
+        <section id="calculadora" class="calculadora-container" style="display: none;">
+    <div class="calculadora-header">
+        <h1 class="calculadora-titulo">Calculadora de Magnitudes Eléctricas</h1>
+        <p class="calculadora-subtitulo">Selecciona el tipo de cálculo que deseas realizar</p>
+    </div>
+
+    <div class="calculadora-opciones">
+        <div class="opcion-item">
+            <button class="opcion-btn" onclick="seleccionarCalculo('I')">
+                <div class="opcion-icono">⚡</div>
+                <div class="opcion-info">
+                    <h3>Intensidad de Corriente (I)</h3>
+                    <p class="opcion-formula">I = Q / t</p>
+                    <p class="opcion-desc">Carga eléctrica por unidad de tiempo</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="opcion-item">
+            <button class="opcion-btn" onclick="seleccionarCalculo('vd')">
+                <div class="opcion-icono">⇢</div>
+                <div class="opcion-info">
+                    <h3>Velocidad de Arrastre (vₐ)</h3>
+                    <p class="opcion-formula">vₐ = I / (nAq)</p>
+                    <p class="opcion-desc">Velocidad promedio de los electrones</p>
+                </div>
+            </button>
+        </div>
+
+        <div class="opcion-item">
+            <button class="opcion-btn" onclick="seleccionarCalculo('J')">
+                <div class="opcion-icono">≡</div>
+                <div class="opcion-info">
+                    <h3>Densidad de Corriente (J)</h3>
+                    <p class="opcion-formula">J = I / A</p>
+                    <p class="opcion-desc">Corriente por unidad de área transversal</p>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <form id="form-calculadora" class="calculadora-form" style="display: none;">
+        <div id="inputs-container" class="inputs-container"></div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-calcular">
+                Calcular
+            </button>
+        </div>
+    </form>
+
+    <div id="resultado" class="resultado-container">
+        <div class="resultado-header">
+        </div>
+        <div class="resultado-content" id="resultado-content"></div>
+    </div>
+
+    <div class="calculadora-graficos">
+        <canvas id="canvas-I" width="600" height="150" style="display: none;"></canvas>
+        <canvas id="canvas-vd" width="600" height="150" style="display: none;"></canvas>
+        <canvas id="canvas-J" width="600" height="150" style="display: none;"></canvas>
+    </div>
+
+    <div class="calculadora-info">
+        <div class="info-box">
+            <h3>Unidades de medida</h3>
+            <ul>
+                <li><strong>Intensidad (I):</strong> Amperios [A]</li>
+                <li><strong>Velocidad (vₐ):</strong> metros/segundo [m/s]</li>
+                <li><strong>Densidad (J):</strong> Amperios/metro² [A/m²]</li>
+            </ul>
+        </div>
+        
+        <div class="info-box">
+            <h3>Datos de referencia</h3>
+            <ul>
+                <li>Carga del electrón (q): 1.6×10⁻¹⁹ C</li>
+                <li>Densidad electrónica (Cu): ~8.5×10²⁸ e⁻/m³</li>
+                <li>1 A = 1 C/s</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+
+    <script src="animaciones.js"></script>
+    <script src="ocultar-mostrar.js"></script>
+    <script src="calculadora.js"></script>
+</body>
+
+</html>
