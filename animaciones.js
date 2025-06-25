@@ -23,18 +23,41 @@ if (ctx) {
         });
     }
 
+    
     function dibujarConductor() {
-        // Tubo conductor
-        ctx.fillStyle = "#eee";
-        ctx.fillRect(0, 60, canvas.width, 30);
-        ctx.strokeStyle = "black";
-        ctx.strokeRect(0, 60, canvas.width, 30);
+    // Configuración del tubo más ancho
+    const alturaTubo = 60;  // Altura aumentada a 60px
+    const posicionY = 45;   // Ajustamos la posición Y para centrar mejor
+    
+    // Gradiente más pronunciado para el efecto 3D
+    const gradiente = ctx.createLinearGradient(0, posicionY, 0, posicionY + alturaTubo);
+    gradiente.addColorStop(0, '#ccc');
+    gradiente.addColorStop(0.3, '#eee');
+    gradiente.addColorStop(0.7, '#eee');
+    gradiente.addColorStop(1, '#aaa');
+    
+    // Dibujar el tubo con gradiente
+    ctx.fillStyle = gradiente;
+    ctx.fillRect(0, posicionY, canvas.width, alturaTubo);
+    
+    // Bordes más marcados para el efecto de grosor
+    ctx.strokeStyle = "rgba(0,0,0,0.4)";
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(0, posicionY);
+    ctx.lineTo(canvas.width, posicionY);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(0, posicionY + alturaTubo);
+    ctx.lineTo(canvas.width, posicionY + alturaTubo);
+    ctx.stroke();
 
-        // Texto de intensidad
-        ctx.fillStyle = "black";
-        ctx.font = "12px Arial";
-        ctx.fillText("Intensidad de corriente I = " + I.toFixed(2) + " A", 10, 55);
-    }
+    // Texto de intensidad (posición ajustada)
+    ctx.fillStyle = "black";
+    ctx.font = "12px Arial";
+    ctx.fillText("Intensidad de corriente I = " + I.toFixed(2) + " A", 10, posicionY - 5);
+}
 
     function dibujarFlechaCorriente() {
         // Flecha de corriente convencional (de + a -)
